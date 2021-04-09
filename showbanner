@@ -1,0 +1,14 @@
+ name: GATHER INFORMATION FROM ROUTERS
+  hosts: routers
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: GATHER ROUTER FACTS
+      ios_facts: 
+    - name: COLLECT OUTPUT OF SHOW COMMANDS
+      ios_command:
+        commands:
+          - show banner 
+      tags: show
+      register: show_output
